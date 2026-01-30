@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <title>Movie API</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script defer src="js/main.js"></script>
+  </head>
+  <body>
+    <div class="grid-con">
+      <section class="col-span-full m-col-span-6">
+        <h2>Star Wars Characters</h2>
+        <div id="characters">
+          <!-- dynamically generated list goes here -->
+        </div>
+      </section>
+
+      <div class="col-span-full m-col-span-6">
+        <h2>Details</h2>
+        <section id="profile">
+          <!-- template inserted here -->
+        </section>
+        <template id="character-template">
+          <div>
+            <h3 class="name"></h3>
+            <p class="stats"></p>
+          </div>
+        </template>
+      </div>
+    </div>
+  </body>
 </html>
