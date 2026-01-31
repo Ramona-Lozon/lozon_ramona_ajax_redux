@@ -1,3 +1,7 @@
+body {
+    background: black;
+}
+
 a {
     cursor: pointer;
 }
@@ -9,13 +13,52 @@ ul {
 
 li {
     padding: 10px;
+    color: white;
 }
 
 li:nth-child(odd) {
-    background-color: #efefef;
+    background-color:rgb(34, 12, 64, 0.5);
+    
 }
 
 li img {
     max-width: 10%;
     display: block;
 }
+
+#profile {
+    top: 0;
+    margin-top:70px;
+    position: fixed;
+}
+
+.stats {
+    display: flex;
+    section {
+        margin-right: max(50px);
+
+    }
+}
+
+#details-header {
+    position: fixed;
+}
+
+#stat-list {
+    margin-bottom: 10px;
+    p {
+        margin-top: 10px;
+    }
+}
+
+.nested-list {
+    display: flex;
+    margin-left:20px;
+    div {
+        margin-left: 10px;
+    }
+}
+
+#film-titles {
+        margin-left: 73px;
+    }

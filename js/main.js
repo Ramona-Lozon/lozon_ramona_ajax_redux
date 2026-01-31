@@ -161,26 +161,39 @@
         //since we are injecting html, we can style it in the same injection
             lightsaber.innerHTML = response.name;
             theseArentTheDroidsYoureLookingFor.innerHTML = `
-            homeworld: ${planet.name}<br>
-            Birth Year: ${response.birth_year}<br>
-            Height: ${response.height}cm<br>
-            Mass: ${response.mass}kg<br>
-            Hair Color: ${response.hair_color}<br>
-            Eye Color: ${response.eye_color}<br>
-            Gender: ${response.gender}<br>
-            Species: ${speciesNames}<br>
-            films:<div style="margin-left:20px";>
-                    ${filmNames}
-                        </div>
-                            <br>
-            vehicles Driven:<div style="margin-left:20px";>
-                    ${vehicleNames}
-                        </div>
-                            <br>
-            starships Flown:<div style="margin-left:20px";>
-                    ${starshipNames}
-                        </div>
-                            <br>
+            <section id="stat-list">
+            <p>homeworld: ${planet.name}</p>
+            <p>Birth Year: ${response.birth_year}</p>
+            <p>Height: ${response.height}cm</p>
+            <p>Mass: ${response.mass}kg</p>
+            <p>Hair Color: ${response.hair_color}</p>
+            <p>Eye Color: ${response.eye_color}</p>
+            <p>Gender: ${response.gender}</p>
+            <p>Species: ${speciesNames}</p>
+        </section>
+            
+        <section>
+            <div class="nested-list">
+                <p  id="film-titles">Films:</p>
+                    <div>
+                        ${filmNames}
+                    </div>
+                </div>
+            <br>            
+            <div class="nested-list">
+                <p>Vehicles Driven:</p>
+                    <div>
+                        ${vehicleNames}
+                    </div>
+                </div>
+            <br>
+            <div class="nested-list">
+                <p>Starships Flown:</p>
+                    <div>
+                        ${starshipNames}
+                    </div>    
+                </div>
+            </section>
 
             `;
 
