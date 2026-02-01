@@ -37,15 +37,14 @@
 
 //fonts
 
-@mixin fontFace($font-family, $file-path) {
-      @font-face {
-          font: {
-              family: $font-family;
-              weight: normal;
-              style: normal;
-          }
-          //Modern Browsers
-          src: url('#{$file-path}.woff') format('woff'),
-          url('#{$file-path}.woff2') format('woff2')
-      }
-  }
+// @mixin fontFace($font-family, $file-path) {
+//       @font-face {
+//           font: {
+//               family: $font-family;
+//               weight: normal;
+//               style: normal;
+//           }
+//           //Modern Browsers
+//           src: url('../../assets/star-jedi-font/StarJediRounded-jW3R.ttf') format('truetype');
+//       }
+//   }
