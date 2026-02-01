@@ -44,7 +44,7 @@
                 // Fills them with the name, height
                 a.textContent = person.name;
                 // dataset.ewok stores the character's ID in the link (for later clicking)
-                a.dataset.ewok = person.url;
+                li.dataset.ewok = person.url;
                 // Nests them: a goes inside <li>
                 // <li> goes inside <ul>
                 li.appendChild(a);
@@ -53,13 +53,14 @@
             // Adds the complete list on your page
             starWarsContainer.appendChild(ul);})
 
-        // After the character is displayed, this grabs all the links to them and adds click listeners to them.
+        // After the character is displayed, this grabs all the list items to them and adds click listeners to them.
         .then(function(){
-            const links = document.querySelectorAll("#characters li a");
-            console.log(links);
-            // When someone clicks a link, the imYourFather function runs.
-            links.forEach(function(link){
-                link.addEventListener("click", imYourFather);
+            const listItems = document.querySelectorAll("#characters li");
+            console.log(listItems);
+            // When someone clicks a list item, the imYourFather function runs.
+            listItems.forEach(function(item){
+                item.addEventListener("click", imYourFather);
+                item.style.cursor = "pointer";
             })})
 
  
