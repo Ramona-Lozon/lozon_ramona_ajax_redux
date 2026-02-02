@@ -12,6 +12,21 @@
     const Profile = document.querySelector("#profile");
     const baseUrl = `https://swapi.info/api/`;
 
+//runs a function and names it createSpinner
+    function createSpinner() {
+        //the function creates a div within the document
+        const spinner = document.createElement('div');
+        //gives the div the 'spinner' class
+        spinner.className = 'spinner';
+        //injects HTML elements into the div 
+        spinner.innerHTML = `
+            <div class="spinner-border"></div>
+            <p>Loading...</p>
+        `;
+        //this returns the result of the function to the website's memory, not the dom
+        return spinner;
+    }
+
 // the getMovies() function is triggered at the bottom of the document
     function starWars() {
 
@@ -75,6 +90,17 @@
     function imYourFather(e) {
         console.log(e.currentTarget.dataset.ewok);
         const personUrl = e.currentTarget.dataset.ewok;
+
+        //this targets the profile template and replaces its html with nothing, wiping it clean
+        Profile.innerHTML = "";
+        // this declares a constant called profileSpinner and defines it as the function 'createSpinner'
+        //this function has been resolved higher up in the code and its result was handed back to the site's memory
+        //the result of 'createSpinner' is then declared as the constant 'profileSpinner'
+        const profileSpinner = createSpinner();
+        //this targets the profile template and appends the constant profileSpinner to it
+        //so the result of the createSpinner function shows up on the page as an element 
+        Profile.appendChild(profileSpinner);
+
 
         // Fetches detailed info for that specific person
         fetch(personUrl)
@@ -208,4 +234,104 @@
     
 // This starts everything    
 starWars();
+})();
+
+(() => {
+
+  const matLoader = document.querySelector("#mat-loader");
+    matLoader.classList.toggle("hidden");
+    matLoader.classList.toggle("hidden"); //toggle the hidden class for the loading indicator
+
+
+//   const hotspots = document.querySelectorAll(".Hotspot");
+//   const materialTemplate = document.querySelector("#material-template");
+//   const materialList = document.querySelector("#material-list");
+//   const hotspotA = document.querySelector(".HotspotAnnotation");
+//   const matLoader = document.querySelector("#mat-loader");
+
+//   //functions
+//   function loadInfoBoxes() {
+//     //boxLoader.classList.toggle("hidden");
+//     //make AJAX call here
+//     fetch("https://swiftpixel.com/earbud/api/infoboxes")
+//     .then(response => response.json())
+//     .then(infoBoxes =>{
+//       console.log(infoBoxes);
+
+//       infoBoxes.forEach((infoBox, index) => {
+//         let selected = document.querySelector(`#hotspot-${index + 1}`);
+  
+//         const titleElement = document.createElement('h2');
+//         titleElement.textContent = infoBox.heading;
+  
+//         const textElement = document.createElement('p');
+//         textElement.textContent = infoBox.description;
+  
+//         selected.appendChild(titleElement);
+//         selected.appendChild(textElement);
+//       });
+
+      //boxLoader.classList.toggle("hidden");
+      //hotspotA.innerHTML = "";
+      
+
+//     })
+//     .catch(error => {
+//       console.log(error);
+//       const errorMessage = document.createElement("p");
+//       errorMessage.textContent = "Error loading Hotspots";
+//       hotspotA.appendChild(errorMessage);
+//     })
+
+//   }
+//   loadInfoBoxes();
+
+// function loadMaterialInfo() {
+//   matLoader.classList.toggle("hidden");
+//   materials.forEach(material => {
+//     //clone the template
+//     const clone = materialTemplate.content.cloneNode(true);
+//     //populate with data
+//     const materialHeading = clone.querySelector(".material-heading");
+//     materialHeading.textContent = material.heading;
+  
+//     const materialDescription = clone.querySelector(".material-description");
+//     materialDescription.textContent = material.description;
+  
+//     materialList.appendChild(clone);
+//     })
+
+
+//     matLoader.classList.toggle("hidden"); //toggle the hidden class for the loading indicator
+    
+// })
+
+//put something in here that is considered proper error handling
+// .catch(error => {
+//   console.log(error); //console log the error
+//   const errorMessage = document.createElement("p"); //create a p element
+//   errorMessage.textContent = "Error loading materials"; //populate that element with content
+//   materialList.appendChild(errorMessage); //append that message to the #people-con div
+// })
+
+// }
+// loadMaterialInfo();
+
+//   function showInfo() {
+//     let selected = document.querySelector(`#${this.slot}`);
+//     gsap.to(selected, 1, { autoAlpha: 1 });
+//   }
+
+//   function hideInfo() {
+//     let selected = document.querySelector(`#${this.slot}`);
+//     gsap.to(selected, 1, { autoAlpha: 0 });
+//   }
+
+//   //Event listeners
+
+//   hotspots.forEach(function (hotspot) {
+//     hotspot.addEventListener("mouseenter", showInfo);
+//     hotspot.addEventListener("mouseleave", hideInfo);
+//   });
+
 })();
