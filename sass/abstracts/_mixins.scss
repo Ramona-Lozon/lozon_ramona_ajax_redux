@@ -35,16 +35,26 @@
       justify-content: center;
 }
 
-//fonts
+.spinner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      min-height: 100px;
 
-// @mixin fontFace($font-family, $file-path) {
-//       @font-face {
-//           font: {
-//               family: $font-family;
-//               weight: normal;
-//               style: normal;
-//           }
-//           //Modern Browsers
-//           src: url('../../assets/star-jedi-font/StarJediRounded-jW3R.ttf') format('truetype');
-//       }
-//   }
+      .spinner-border {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #FFE81F;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+

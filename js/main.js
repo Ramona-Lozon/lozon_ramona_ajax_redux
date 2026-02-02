@@ -7,10 +7,23 @@
 // Profile - character details will be displayed
 // BaseUrl - stores API Address
 
+    window.addEventListener('load', function() {
+        starWars();  // Waits for everything
+    });
+
+console.log('Script started');
+console.log('Document ready state:', document.readyState);
+console.log('Stylesheets loaded:', document.styleSheets.length);
+
     const starWarsContainer = document.querySelector("#characters");
     const darthMaul = document.querySelector("#character-template");
     const Profile = document.querySelector("#profile");
     const baseUrl = `https://swapi.info/api/`;
+
+    // // Wait for EVERYTHING to load (HTML, CSS, images)
+    // window.addEventListener('load', function() {
+    //     starWars();  // Now call your main function    
+    //      });
 
 //runs a function and names it createSpinner
     function createSpinner() {
@@ -224,8 +237,17 @@
 
             `;
 
-        // Adds the filled template (darthMaul)to the page
-            Profile.appendChild(clone);
+        // const spinner = Profile.querySelector('.spinner');
+        // if (spinner) {
+        //     spinner.replaceWith(clone);
+        // } else {
+        //     Profile.innerHTML = "";
+        //     Profile.appendChild(clone);
+        // }
+
+             Profile.innerHTML = "";
+        // // Adds the filled template (darthMaul)to the page
+             Profile.appendChild(clone);
 
         }).catch(function(error){console.log(error)});
 
@@ -234,14 +256,10 @@
     
 // This starts everything    
 starWars();
+
 })();
 
 (() => {
-
-  const matLoader = document.querySelector("#mat-loader");
-    matLoader.classList.toggle("hidden");
-    matLoader.classList.toggle("hidden"); //toggle the hidden class for the loading indicator
-
 
 //   const hotspots = document.querySelectorAll(".Hotspot");
 //   const materialTemplate = document.querySelector("#material-template");
