@@ -9,26 +9,43 @@
     <script defer src="js/main.js"></script>
   </head>
   <body>
+
     <div class="grid-con">
-      <section class="col-span-full m-col-span-4">
-        <h2 class="title-header">Star Wars Characters</h2>
+      <section id="list-parent" class="col-span-full m-col-span-4">
+        
+        <div id="list-title">
+          <h2 class="title-header">Star Wars Characters</h2>
+        </div>
+        
         <div id="characters">
           <!-- dynamically generated list goes here -->
         </div>
       </section>
 
-      <div class="col-span-full m-col-span-6">
-        <h2 id="details-header" class="title-header">character profile</h2>
-        <section id="profile">
-          <!-- template inserted here -->
-        </section>
-        <template id="character-template">
-          <div>
-            <h3 class="name"></h3>
-            <p class="stats"></p>
-          </div>
-        </template>
-      </div>
+      <!-- profile lightbox  -->
+          <div id="profile-lightbox" class="col-span-full m-col-span-6">
+            <div id="profile-header">
+              <h2 class="title-header">character profile</h2>
+            </div>
+
+            <button class="profile-close jediFont">
+              &larr;Back
+            </button>   
+
+              <section id="profile">
+                <!-- stuff gets generated here -->
+              </section>
+                
+              <template id="character-template">
+                  <div>
+                    <h3 class="name"></h3>
+                      <p class="stats"></p>
+                  </div>
+                </template>
+
+            <!-- lightbox ends     -->
+            </div>
+
     </div>
   </body>
   <!-- <script src="js/main.js"></script> -->

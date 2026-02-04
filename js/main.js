@@ -16,6 +16,8 @@ console.log('Document ready state:', document.readyState);
 console.log('Stylesheets loaded:', document.styleSheets.length);
 
     const starWarsContainer = document.querySelector("#characters");
+    const lightbox = document.querySelector("#profile-lightbox");
+    const closeBtn = document.querySelector('.profile-close');
     const darthMaul = document.querySelector("#character-template");
     const Profile = document.querySelector("#profile");
     const baseUrl = `https://swapi.info/api/`;
@@ -101,9 +103,12 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
     // e is the click event
     // e.currentTarget is the link that was clicked
     function imYourFather(e) {
+        lightbox.classList.add('active');
+        //document.body.classList.add('no-scroll');
         console.log(e.currentTarget.dataset.ewok);
         const personUrl = e.currentTarget.dataset.ewok;
 
+        
         //this targets the profile template and replaces its html with nothing, wiping it clean
         Profile.innerHTML = "";
         // this declares a constant called profileSpinner and defines it as the function 'createSpinner'
@@ -189,7 +194,12 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
         // if the left side is false, or empty it will use what is on the other side of the OR operator
         // human is written in the species OR function, because the api has ampty arrays for humans
         // because humans are the default i guess? kinda speciesist but w/e
-            const filmNames = films.map(f => f.title).join('<br>');
+            const filmNames = films.map(f => {
+                return `<a href="#" class="film-link" data-film-url="${f.url}">${f.title}</a>`
+                f.title}).join('<br>');
+
+
+
             const vehicleNames = vehicles.map(v => v.name).join('<br>') || 'None';
             const starshipNames = starships.map(s => s.name).join('<br>') || 'None';
             const speciesNames = species.map(s => s.name).join('<br>') || 'Human';
@@ -212,23 +222,23 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
             <p>Species: ${speciesNames}</p>
         </section>
             
-        <section>
+        <section id="nested-section">
             <div class="nested-list">
-                <p  id="film-titles">Films:</p>
+                <p  id="film-titles">Films</p>
                     <div>
                         ${filmNames}
                     </div>
                 </div>
             <br>            
             <div class="nested-list">
-                <p>Vehicles Driven:</p>
+                <p>Vehicles Driven</p>
                     <div>
                         ${vehicleNames}
                     </div>
                 </div>
             <br>
             <div class="nested-list">
-                <p>Starships Flown:</p>
+                <p>Starships Flown</p>
                     <div>
                         ${starshipNames}
                     </div>    
@@ -248,10 +258,17 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
              Profile.innerHTML = "";
         // // Adds the filled template (darthMaul)to the page
              Profile.appendChild(clone);
-
         }).catch(function(error){console.log(error)});
 
         })
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+        function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+        //document.body.classList.remove('lightbox-open');
     }
     
 // This starts everything    
