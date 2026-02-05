@@ -42,11 +42,11 @@
       padding: 2rem;
       min-height: 100px;
 
-      .spinner-border {
+.spinner-border {
     width: 50px;
     height: 50px;
     border: 5px solid #f3f3f3;
-    border-top: 5px solid #FFE81F;
+    border-top: 5px solid #ffde21;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -57,4 +57,10 @@
     100% { transform: rotate(360deg); }
 }
 
+$primary-color: #ffde21;
+//$secondary-color: ;
+
+.hidden {
+      display: none;
+}
 
