@@ -1,31 +1,3 @@
-.spinner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  min-height: 100px;
-}
-.spinner .spinner-border {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #ffde21;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.hidden {
-  display: none;
-}
-
 @font-face {
   font-family: "driodobesh";
   src: url("../../assets/droidobesh-depot-font/DroidobeshDepot-gxmVE.otf") format("opentype");
@@ -33,6 +5,10 @@
 @font-face {
   font-family: "distant-galaxy";
   src: url("../../assets/sf-distant-galaxy-font/SfDistantGalaxy-0l3d.ttf") format("truetype");
+}
+@font-face {
+  font-family: "star-jedi-outline";
+  src: url("../../assets/star-jedi-outline-font/StarJediOutline-y0xm.ttf") format("truetype");
 }
 .title-header {
   font-family: "distant-galaxy", sans-serif;
@@ -48,6 +24,30 @@
 
 .name {
   font-family: "distant-galaxy", sans-serif;
+}
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+  color: #ffde21;
+  font-family: "distant-galaxy";
+}
+.spinner .spinner-border {
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    box-shadow: inset -50px 0px 50px 25px red;
+  }
+  100% {
+    box-shadow: inset 50px 0px 50px 25px red;
+  }
+}
+.hidden {
+  display: none;
 }
 
 html, body {

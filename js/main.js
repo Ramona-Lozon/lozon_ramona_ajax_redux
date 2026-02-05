@@ -42,8 +42,7 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
         spinner.className = 'spinner';
         //injects HTML elements into the div 
         spinner.innerHTML = `
-            <div class="spinner-border"></div>
-            <p>Loading...</p>
+            <div class="spinner-border">Loading</div>
         `;
         //this returns the result of the function to the website's memory, not the dom
         return spinner;
