@@ -226,7 +226,7 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
             
         <section id="nested-section">
             <div class="nested-list">
-                <p  id="film-titles">Films</p>
+                <p  id="film-titles">Films<br>Click for more information</p>
                     <div>
                         ${filmNames}
                     </div>
@@ -301,13 +301,7 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
                     </p>
                 </section>
             </div>
-        `;
-            })
-
-
-             };
-
-
+        `;})};
 
         }).catch(function(error){console.log(error)});
 
@@ -319,10 +313,10 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
         lightbox.classList.remove('active');
         document.body.classList.remove('lightbox-open');
         }
-        backBtn.addEventListener('click', backToProfile);
-        function backToProfile() {
-            console.log("back button Clicked");
-        }
+        // backBtn.addEventListener('click', backToProfile);
+        // function backToProfile() {
+        //     console.log("back button Clicked");
+        // }
     
 // This starts everything    
 starWars();
