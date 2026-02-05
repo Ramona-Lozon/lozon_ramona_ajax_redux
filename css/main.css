@@ -1,31 +1,3 @@
-.spinner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  min-height: 100px;
-}
-.spinner .spinner-border {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #ffde21;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.hidden {
-  display: none;
-}
-
 @font-face {
   font-family: "driodobesh";
   src: url("../../assets/droidobesh-depot-font/DroidobeshDepot-gxmVE.otf") format("opentype");
@@ -33,6 +5,10 @@
 @font-face {
   font-family: "distant-galaxy";
   src: url("../../assets/sf-distant-galaxy-font/SfDistantGalaxy-0l3d.ttf") format("truetype");
+}
+@font-face {
+  font-family: "star-jedi-outline";
+  src: url("../../assets/star-jedi-outline-font/StarJediOutline-y0xm.ttf") format("truetype");
 }
 .title-header {
   font-family: "distant-galaxy", sans-serif;
@@ -48,6 +24,33 @@
 
 .name {
   font-family: "distant-galaxy", sans-serif;
+}
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+  color: #ffde21;
+  font-family: "distant-galaxy";
+  min-height: 100px;
+}
+.spinner .spinner-border {
+  width: 100px;
+  height: 100px;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.hidden {
+  display: none;
 }
 
 html, body {
@@ -86,7 +89,8 @@ li {
 }
 
 body {
-  background: black;
+  background-image: url("../../images/pexels-alexandrep-junior-7736104.jpg");
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -100,7 +104,7 @@ ul {
 }
 
 li {
-  padding: 10px;
+  margin: 20px;
 }
 
 #list-parent {
@@ -120,6 +124,8 @@ li {
 }
 #list-parent #characters ul li:hover {
   color: white;
+  background-color: rgba(0, 0, 0, 0);
+  animation: glowJedi 1s infinite alternate;
 }
 
 #profile-lightbox {
@@ -142,13 +148,21 @@ li {
 
 .profile-close {
   background: none;
-  border: 1px #ffde21;
   cursor: pointer;
-  line-height: 1;
   color: #ffde21;
-  padding: 0;
-  width: 100px;
-  height: 40px;
+  border-bottom: 2px solid #ffde21;
+  border-top: 2px solid #ffde21;
+  padding-top: 2px;
+  margin-bottom: 20px;
+}
+
+.profile-close:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  animation: glowSith 1s infinite alternate;
+  border-bottom: 2px solid #ffde21;
+  border-top: 2px solid #ffde21;
+  padding-top: 2px;
 }
 
 .name {
@@ -156,23 +170,69 @@ li {
 }
 
 #profile {
+  autoAlpha: 0;
   position: relative;
-  width: 90vw;
+  width: 80vw;
   text-align: center;
-  max-height: 80vh;
+  max-height: 100vh;
   overflow-y: auto;
 }
 
 .film-poster {
   color: #ffde21;
+  max-width: 50vw;
+  margin: 20px auto 20px auto;
 }
 
+.film-link {
+  text-decoration: none;
+  color: #ffde21;
+  border-bottom: 2px solid #ffde21;
+  border-top: 2px solid #ffde21;
+  padding-top: 2px;
+  background: none;
+  cursor: pointer;
+}
+
+.film-link:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  padding-top: 2px;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  animation: glowPadawan 1.5s infinite alternate;
+}
+
+@keyframes glowSith {
+  0%, 100% {
+    box-shadow: inset 10px 10px red, inset -10px -10px red, 5px 5px 15px 5px red, -5px -5px 15px 5px red, -5px 5px 15px 5px red, 5px -5px 15px 5px red;
+  }
+  50% {
+    box-shadow: inset 10px 10px red, inset -10px -10px red, 10px 10px 20px 5px red, -10px -10px 20px 5px red, -10px 10px 20px 5px red, 10px -10px 20px 5px red;
+  }
+}
+@keyframes glowJedi {
+  0%, 100% {
+    box-shadow: inset 10px 10px blue, inset -10px -10px blue, 5px 5px 15px 5px blue, -5px -5px 15px 5px blue, -5px 5px 15px 5px blue, 5px -5px 15px 5px blue;
+  }
+  50% {
+    box-shadow: inset 10px 10px blue, inset -10px -10px blue, 10px 10px 20px 5px blue, -10px -10px 20px 5px blue, -10px 10px 20px 5px blue, 10px -10px 20px 5px blue;
+  }
+}
+@keyframes glowPadawan {
+  0%, 100% {
+    box-shadow: inset 10px 10px green, inset -10px -10px green, 5px 5px 15px 5px green, -5px -5px 15px 5px green, -5px 5px 15px 5px green, 5px -5px 15px 5px green;
+  }
+  50% {
+    box-shadow: inset 10px 10px green, inset -10px -10px green, 10px 10px 20px 5px green, -10px -10px 20px 5px green, -10px 10px 20px 5px green, 10px -10px 20px 5px green;
+  }
+}
 @media (min-width: 768px) {
   #list-parent #list-title {
     text-align: left;
     position: fixed;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.911);
+    background-color: rgba(0, 0, 0, 0);
   }
   #list-parent #characters {
     position: relative;
@@ -203,11 +263,16 @@ li {
   #profile {
     position: relative;
     text-align: left;
-    max-height: 80vh;
+    max-height: 100vh;
     overflow-y: auto;
     width: 60vw;
+    padding-left: 30px;
   }
   #profile .stats {
     margin-right: 40px;
+  }
+  .film-poster {
+    margin: 20px 0 20px 0;
+    width: 30vw;
   }
 }/*# sourceMappingURL=main.css.map */
