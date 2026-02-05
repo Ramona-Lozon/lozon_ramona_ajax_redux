@@ -49,9 +49,13 @@ li {
     width: 100%;
     height: 100%;
     z-index: 1000;
-    //align-items: center;
+    align-items: center;
     justify-content: center;
-    
+
+    // #profile-header {
+    // align-items: center;
+    // justify-content: center;
+    //}
 }
 
 #profile-lightbox.active {
@@ -67,6 +71,10 @@ li {
     padding: 0;
     width: 100px;
     height: 40px;
+}
+
+.name {
+    margin: 20px 0 20px 0;
 }
 
 #profile {
@@ -110,7 +118,6 @@ li {
     height: 100%;
     z-index: 1000;
     justify-content: left;
-    align-items: left;
 }
 
 #profile-lightbox.active {

@@ -190,8 +190,7 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
         // human is written in the species OR function, because the api has ampty arrays for humans
         // because humans are the default i guess? kinda speciesist but w/e
             const filmNames = films.map(f => {
-                return `<a href="#" class="film-link" data-film-url="${f.url}">${f.title}</a>`
-                f.title}).join('<br>');
+                return `<a href="#" class="film-link" data-film-url="${f.url}">${f.title}</a>`}).join('<br>');
 
 
 
@@ -242,17 +241,60 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
 
             `;
 
-        // const spinner = Profile.querySelector('.spinner');
-        // if (spinner) {
-        //     spinner.replaceWith(clone);
-        // } else {
-        //     Profile.innerHTML = "";
-        //     Profile.appendChild(clone);
-        // }
-
              Profile.innerHTML = "";
         // // Adds the filled template (darthMaul)to the page
              Profile.appendChild(clone);
+
+             //adds functionality to the film links
+
+             const filmLinks = Profile.querySelectorAll('.film-link');
+             filmLinks.forEach(function(link) {
+                link.addEventListener("click", dontTellMeTheOdds);
+             });
+
+            function dontTellMeTheOdds(e) {
+                console.log("Film link clicked!")
+                //console.log(e.currentTarget.dataset.skywalker);
+                const movieUrl = e.currentTarget.dataset.filmUrl;
+                console.log(e.currentTarget.dataset.filmUrl)
+
+                Profile.innerHTML='';
+                const spinner = createSpinner();
+                Profile.appendChild(spinner);
+
+            fetch(movieUrl)
+            .then(results => results.json())
+            .then(function(filmData) {
+            console.log("film data", filmData);
+
+                    // Build the film display
+        //const filmDiv = document.createElement('div');
+        Profile.innerHTML='';
+        Profile.innerHTML = `
+            <h3 class="name">${filmData.title}</h3>
+            <div class="stats">
+                <section id="stat-list">
+                    <p> Episode: ${filmData.episode_id}</p>
+                    <p> Director: ${filmData.director}</p>
+                    <p>Producer: ${filmData.producer}</p>
+                    <p>Release Date: ${filmData.release_date}</p>
+                </section>
+                <br>
+                <section>
+                    <p>Opening Crawl</p>
+                    <p>
+                        ${filmData.opening_crawl}
+                    </p>
+                </section>
+            </div>
+        `;
+            })
+
+
+             };
+
+
+
         }).catch(function(error){console.log(error)});
 
         })
