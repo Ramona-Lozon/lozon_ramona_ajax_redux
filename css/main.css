@@ -86,7 +86,8 @@ li {
 }
 
 body {
-  background: black;
+  background-image: url("../../images/pexels-alexandrep-junior-7736104.jpg");
+  background-size: cover;
   overflow: hidden;
 }
 

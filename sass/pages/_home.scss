@@ -1,8 +1,10 @@
 @use '../abstracts/mixins' as a;
 
 body {
-    background: black;
-        overflow: hidden;
+    //background: black;
+    background-image: url("../../images/pexels-alexandrep-junior-7736104.jpg");  
+    background-size: cover;
+    overflow: hidden;
 }
 
 a {
