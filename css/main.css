@@ -100,7 +100,7 @@ ul {
 }
 
 li {
-  padding: 10px;
+  margin: 20px;
 }
 
 #list-parent {
@@ -120,6 +120,8 @@ li {
 }
 #list-parent #characters ul li:hover {
   color: white;
+  background-color: rgba(0, 0, 0, 0);
+  animation: glowJedi 1s infinite alternate;
 }
 
 #profile-lightbox {
@@ -142,13 +144,20 @@ li {
 
 .profile-close {
   background: none;
-  border: 1px #ffde21;
   cursor: pointer;
-  line-height: 1;
   color: #ffde21;
-  padding: 0;
-  width: 100px;
-  height: 40px;
+  border-bottom: 2px solid #ffde21;
+  border-top: 2px solid #ffde21;
+  padding-top: 2px;
+}
+
+.profile-close:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  animation: glowSith 1s infinite alternate;
+  border-bottom: 2px solid #ffde21;
+  border-top: 2px solid #ffde21;
+  padding-top: 2px;
 }
 
 .name {
@@ -157,7 +166,7 @@ li {
 
 #profile {
   position: relative;
-  width: 90vw;
+  width: 80vw;
   text-align: center;
   max-height: 80vh;
   overflow-y: auto;
@@ -172,12 +181,46 @@ li {
 .film-link {
   text-decoration: none;
   color: #ffde21;
+  border-bottom: 2px solid #ffde21;
+  border-top: 2px solid #ffde21;
+  padding-top: 2px;
+  background: none;
+  cursor: pointer;
 }
 
 .film-link:hover {
+  background-color: rgba(0, 0, 0, 0);
   color: white;
+  padding-top: 2px;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  animation: glowPadawan 1.5s infinite alternate;
 }
 
+@keyframes glowSith {
+  0%, 100% {
+    box-shadow: inset 10px 10px red, inset -10px -10px red, 5px 5px 15px 5px red, -5px -5px 15px 5px red, -5px 5px 15px 5px red, 5px -5px 15px 5px red;
+  }
+  50% {
+    box-shadow: inset 10px 10px red, inset -10px -10px red, 10px 10px 20px 5px red, -10px -10px 20px 5px red, -10px 10px 20px 5px red, 10px -10px 20px 5px red;
+  }
+}
+@keyframes glowJedi {
+  0%, 100% {
+    box-shadow: inset 10px 10px blue, inset -10px -10px blue, 5px 5px 15px 5px blue, -5px -5px 15px 5px blue, -5px 5px 15px 5px blue, 5px -5px 15px 5px blue;
+  }
+  50% {
+    box-shadow: inset 10px 10px blue, inset -10px -10px blue, 10px 10px 20px 5px blue, -10px -10px 20px 5px blue, -10px 10px 20px 5px blue, 10px -10px 20px 5px blue;
+  }
+}
+@keyframes glowPadawan {
+  0%, 100% {
+    box-shadow: inset 10px 10px green, inset -10px -10px green, 5px 5px 15px 5px green, -5px -5px 15px 5px green, -5px 5px 15px 5px green, 5px -5px 15px 5px green;
+  }
+  50% {
+    box-shadow: inset 10px 10px green, inset -10px -10px green, 10px 10px 20px 5px green, -10px -10px 20px 5px green, -10px 10px 20px 5px green, 10px -10px 20px 5px green;
+  }
+}
 @media (min-width: 768px) {
   #list-parent #list-title {
     text-align: left;
@@ -225,4 +268,4 @@ li {
     margin: 20px 0 20px 0;
     width: 30vw;
   }
-}/*# sourceMappingURL=main.css.map */
+}

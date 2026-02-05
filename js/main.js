@@ -200,7 +200,7 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
         // human is written in the species OR function, because the api has ampty arrays for humans
         // because humans are the default i guess? kinda speciesist but w/e
             const filmNames = films.map(f => {
-                return `<a href="#" class="film-link" data-film-url="${f.url}">${f.title}</a>`}).join('<br>');
+                return `<a href="#" class="film-link" data-film-url="${f.url}">${f.title}</a><br>`}).join('<br>');
 
             const vehicleNames = vehicles.map(v => v.name).join('<br>') || 'None';
             const starshipNames = starships.map(s => s.name).join('<br>') || 'None';
