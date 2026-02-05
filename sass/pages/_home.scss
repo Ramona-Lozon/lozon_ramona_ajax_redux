@@ -85,6 +85,10 @@ li {
     overflow-y: auto;
 }
 
+.film-poster {
+    color: a.$primary-color;
+}
+
 @media (min-width: 768px) {
 
 #list-parent {
@@ -133,6 +137,10 @@ display: none;
     text-align: left;
     max-height: 80vh;
     overflow-y: auto;
+    width: 60vw;
+    .stats {
+        margin-right: 40px;
+    }
 }
 
-} 
+}
