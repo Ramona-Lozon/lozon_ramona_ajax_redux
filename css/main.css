@@ -163,6 +163,10 @@ li {
   overflow-y: auto;
 }
 
+.film-poster {
+  color: #ffde21;
+}
+
 @media (min-width: 768px) {
   #list-parent #list-title {
     text-align: left;
@@ -201,5 +205,9 @@ li {
     text-align: left;
     max-height: 80vh;
     overflow-y: auto;
+    width: 60vw;
+  }
+  #profile .stats {
+    margin-right: 40px;
   }
 }/*# sourceMappingURL=main.css.map */

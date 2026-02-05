@@ -15,9 +15,19 @@ console.log('Script started');
 console.log('Document ready state:', document.readyState);
 console.log('Stylesheets loaded:', document.styleSheets.length);
 
+    const filmImages = {
+    1: 'images/TPM-poster.jpg',
+    2: 'images/AOTC-poster.jpg',
+    3: 'images/ROTS-poster.jpg',
+    4: 'images/ANH-poster.jpg',
+    5: 'images/TESB-poster.jpg',
+    6: 'images/ROTJ-poster.jpg'
+    };
+
     const starWarsContainer = document.querySelector("#characters");
     const lightbox = document.querySelector("#profile-lightbox");
     const closeBtn = document.querySelector('.profile-close');
+    const backBtn = document.querySelector(".film-profile-close")
     const darthMaul = document.querySelector("#character-template");
     const Profile = document.querySelector("#profile");
     const baseUrl = `https://swapi.info/api/`;
@@ -192,8 +202,6 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
             const filmNames = films.map(f => {
                 return `<a href="#" class="film-link" data-film-url="${f.url}">${f.title}</a>`}).join('<br>');
 
-
-
             const vehicleNames = vehicles.map(v => v.name).join('<br>') || 'None';
             const starshipNames = starships.map(s => s.name).join('<br>') || 'None';
             const speciesNames = species.map(s => s.name).join('<br>') || 'Human';
@@ -269,9 +277,15 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
 
                     // Build the film display
         //const filmDiv = document.createElement('div');
+        const imgPath = filmImages[filmData.episode_id];
         Profile.innerHTML='';
         Profile.innerHTML = `
             <h3 class="name">${filmData.title}</h3>
+
+            <div class="film-poster">
+                <img src="${imgPath}" alt="${filmData.title} Poster">
+            </div>
+
             <div class="stats">
                 <section id="stat-list">
                     <p> Episode: ${filmData.episode_id}</p>
@@ -300,13 +314,15 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
         })
     }
 
-    closeBtn.addEventListener('click', closeLightbox);
-
+        closeBtn.addEventListener('click', closeLightbox);
         function closeLightbox() {
         lightbox.classList.remove('active');
-        //document.body.classList.remove('no-scroll');
         document.body.classList.remove('lightbox-open');
-    }
+        }
+        backBtn.addEventListener('click', backToProfile);
+        function backToProfile() {
+            console.log("back button Clicked");
+        }
     
 // This starts everything    
 starWars();
