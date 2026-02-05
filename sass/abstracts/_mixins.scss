@@ -43,26 +43,18 @@
       padding: 100px;
       color: #ffde21;
       font-family: "distant-galaxy";
-      //min-height: 100px;
+      min-height: 100px;
 
-.spinner-border {
-    //width: 100px;
-    //height: 50px;
-    //border: 5px solid #f3f3f3;
-    //border-top: 5px solid #ffde21;
-    //border-radius: 5px;
-    animation: loading 1s linear infinite;
-}
-}
+            .spinner-border {
+            width: 100px;
+            height: 100px;
+            animation: spin 3s linear infinite;
+            }
+      }
 
-@keyframes loading {
-    0% {
-    box-shadow: inset -50px 0px 50px 25px red;
-    }
-    100% {
-    box-shadow: inset 50px 0px 50px 25px red;
-    }
-    //100% { transform: rotate(360deg); }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 $primary-color: #ffde21;

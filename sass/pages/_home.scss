@@ -86,12 +86,24 @@ li {
 }
 
 #profile {
+    //opacity: 0;
+    autoAlpha: 0;
     position: relative;
     width: 80vw;
     text-align: center;
-    max-height: 80vh;
+    max-height: 100vh;
     overflow-y: auto;
+    //animation: fadeIn 0.5s ease-in forwards;
 }
+
+// @keyframes fadeIn {
+//     0% {
+//         opacity: 0;
+//     }
+//     100% {
+//         opacity: 1;
+//     }
+// }
 
 .film-poster {
     color: a.$primary-color;
@@ -183,7 +195,7 @@ li {
             text-align: left;
             position: fixed;
             top: 0;
-    background-color: rgba(0, 0, 0, 0.911);
+    background-color: rgba(0, 0, 0, 0);
         }
         #characters {
             position: relative;
@@ -221,7 +233,7 @@ display: none;
 #profile {
     position: relative;
     text-align: left;
-    max-height: 80vh;
+    max-height: 100vh;
     overflow-y: auto;
     width: 60vw;
     padding-left: 30px;

@@ -33,17 +33,20 @@
   padding: 100px;
   color: #ffde21;
   font-family: "distant-galaxy";
+  min-height: 100px;
 }
 .spinner .spinner-border {
-  animation: loading 1s linear infinite;
+  width: 100px;
+  height: 100px;
+  animation: spin 3s linear infinite;
 }
 
-@keyframes loading {
+@keyframes spin {
   0% {
-    box-shadow: inset -50px 0px 50px 25px red;
+    transform: rotate(0deg);
   }
   100% {
-    box-shadow: inset 50px 0px 50px 25px red;
+    transform: rotate(360deg);
   }
 }
 .hidden {
@@ -167,10 +170,11 @@ li {
 }
 
 #profile {
+  autoAlpha: 0;
   position: relative;
   width: 80vw;
   text-align: center;
-  max-height: 80vh;
+  max-height: 100vh;
   overflow-y: auto;
 }
 
@@ -228,7 +232,7 @@ li {
     text-align: left;
     position: fixed;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.911);
+    background-color: rgba(0, 0, 0, 0);
   }
   #list-parent #characters {
     position: relative;
@@ -259,7 +263,7 @@ li {
   #profile {
     position: relative;
     text-align: left;
-    max-height: 80vh;
+    max-height: 100vh;
     overflow-y: auto;
     width: 60vw;
     padding-left: 30px;
