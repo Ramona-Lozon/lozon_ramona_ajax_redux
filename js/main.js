@@ -29,6 +29,8 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
     const closeBtn = document.querySelector('.profile-close');
     const backBtn = document.querySelector(".film-profile-close")
     const darthMaul = document.querySelector("#character-template");
+    const profHead = document.querySelector(".profile-header");
+    const filmHead = document.querySelector(".film-header");
     const Profile = document.querySelector("#profile");
     const baseUrl = `https://swapi.info/api/`;
 
@@ -211,6 +213,8 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
         // the obi-wan quote does the same thing
         //the ${something} inserts the results grabbed earlier into the HTML injection 
         //since we are injecting html, we can style it in the same injection
+            profHead.classList.remove('hidden');
+            filmHead.classList.add('hidden');
             lightsaber.innerHTML = response.name;
             theseArentTheDroidsYoureLookingFor.innerHTML = `
             <section id="stat-list">
@@ -265,10 +269,13 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
                 //console.log(e.currentTarget.dataset.skywalker);
                 const movieUrl = e.currentTarget.dataset.filmUrl;
                 console.log(e.currentTarget.dataset.filmUrl)
+                profHead.classList.add('hidden');
+                filmHead.classList.remove('hidden');
 
                 Profile.innerHTML='';
                 const spinner = createSpinner();
                 Profile.appendChild(spinner);
+
 
             fetch(movieUrl)
             .then(results => results.json())
@@ -312,6 +319,8 @@ console.log('Stylesheets loaded:', document.styleSheets.length);
         function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.classList.remove('lightbox-open');
+        profHead.classList.add('hidden');
+        filmHead.classList.add('hidden');
         }
         // backBtn.addEventListener('click', backToProfile);
         // function backToProfile() {

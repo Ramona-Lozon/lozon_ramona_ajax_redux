@@ -149,6 +149,7 @@ li {
   border-bottom: 2px solid #ffde21;
   border-top: 2px solid #ffde21;
   padding-top: 2px;
+  margin-bottom: 20px;
 }
 
 .profile-close:hover {
@@ -260,6 +261,7 @@ li {
     max-height: 80vh;
     overflow-y: auto;
     width: 60vw;
+    padding-left: 30px;
   }
   #profile .stats {
     margin-right: 40px;
@@ -268,4 +270,4 @@ li {
     margin: 20px 0 20px 0;
     width: 30vw;
   }
-}
+}/*# sourceMappingURL=main.css.map */
